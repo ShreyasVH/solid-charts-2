@@ -1,5 +1,15 @@
 import { Bar } from 'solid-chartjs'
-import "chart.js/auto";
+import {
+    Chart as ChartJS,
+    BarElement,
+    CategoryScale,
+    LinearScale,
+    Title,
+    Tooltip,
+    Legend,
+} from "chart.js";
+
+ChartJS.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
 
 const BarChart = () => {
     const chartData = {
@@ -16,14 +26,14 @@ const BarChart = () => {
     }
     const chartOptions = {
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: false
     }
 
     return (
-        <div>
+        <div style={{width: '400px', height: '400px'}}>
             <Bar data={chartData} options={chartOptions} width={400} height={400} />
         </div>
-    )
-}
+    );
+};
 
 export default BarChart;
